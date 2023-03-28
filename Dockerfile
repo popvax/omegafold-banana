@@ -12,7 +12,7 @@ ADD requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
 RUN mkdir OmegaFold
 COPY OmegaFold OmegaFold
-RUN pip3 install OmegaFold
+RUN pip3 install -e /OmegaFold
 
 # We add the banana boilerplate here
 ADD server.py .
