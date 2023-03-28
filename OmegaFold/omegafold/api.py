@@ -32,7 +32,6 @@ import omegafold as of
 from . import pipeline
 import random
 import string
-from pipeline import _load_weights
 import argparse
 # =============================================================================
 # Functions
@@ -45,7 +44,7 @@ def init():
         subbatch_size=None,
         num_recycle=10,
     )
-    weights = _load_weights("https://helixon.s3.amazonaws.com/release1.pt", os.path.expanduser("~/.cache/omegafold_ckpt/model.pt"))
+    weights = pipeline._load_weights("https://helixon.s3.amazonaws.com/release1.pt", os.path.expanduser("~/model.pt"))
     weights = weights.pop('model', weights)
 
     # get the model
@@ -58,6 +57,7 @@ def init():
     model.load_state_dict(weights)
     model.eval()
     model.to("cuda:0")
+    logging.info("Constructed model")
 
 @torch.no_grad()
 def inference(model_inputs:dict) -> dict:
@@ -67,8 +67,8 @@ def inference(model_inputs:dict) -> dict:
         model_inputs["sequence"],
         device=torch.device("cuda:0"),
     )
-    inputs = list(inputs)[0]
-    input_data = inputs[0]
+
+    input_data = list(inputs)[0]
     try:
         output = model(
                 input_data,

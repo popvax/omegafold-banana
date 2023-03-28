@@ -118,7 +118,7 @@ def fasta2inputs(
     chain_ids: list[str] = []
     aastr: list[str] = []
     fasta_str = f""">SEQ
-    {sequence}"""
+{sequence}"""
     lines = fasta_str.splitlines()
     # with open(fasta_path, 'r') as file:
     #     lines = file.readlines()

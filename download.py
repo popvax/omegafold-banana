@@ -8,7 +8,7 @@ import os
 def download_model():
     # do a dry run of loading the huggingface model, which will download weights
     weights_url = "https://helixon.s3.amazonaws.com/release1.pt"
-    weights_file = os.path.expanduser("~/.cache/omegafold_ckpt/model.pt")
+    weights_file = os.path.expanduser("~/model.pt")
     hub.download_url_to_file(weights_url, weights_file)
 
 if __name__ == "__main__":
