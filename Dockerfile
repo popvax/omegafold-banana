@@ -12,7 +12,7 @@ ADD requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
 ADD OmegaFold/ OmegaFold/
 RUN cd OmegaFold
-RUN sudo pip3 install .
+RUN pip3 install .
 RUN cd ..
 
 # We add the banana boilerplate here
