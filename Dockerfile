@@ -22,6 +22,8 @@ ADD server.py .
 ADD download.py .
 RUN python3 download.py
 
+ADD app.py
+
 EXPOSE 8000
 
 CMD python3 -u server.py

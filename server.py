@@ -5,7 +5,7 @@
 
 from sanic import Sanic, response
 import subprocess
-import OmegaFold.omegafold.api as user_src
+import app as user_src
 
 # We do the model load-to-GPU step on server startup
 # so the model object is available globally for reuse
