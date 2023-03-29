@@ -22,7 +22,7 @@ ADD server.py .
 ADD download.py .
 RUN python3 download.py
 
-ADD app.py
+ADD app.py .
 
 EXPOSE 8000
 
